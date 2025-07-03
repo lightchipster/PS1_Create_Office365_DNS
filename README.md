@@ -6,6 +6,7 @@ If you enter a domain, it will replace the dots with dashes.
 
 Example output using example.com:
 
+```
 DNS Records for example.com
 Generated on 03-07-2025 17:02:44
 
@@ -43,4 +44,4 @@ selector1-example-com._domainkey.icdb.p-v1.dkim.mail.microsoft
 selector2._domainkey
 selector2-example-com._domainkey.icdb.p-v1.dkim.mail.microsoft
 1 Hour TTL
-
+```
