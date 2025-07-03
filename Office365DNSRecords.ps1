@@ -81,30 +81,30 @@ $enterpriseenrollms
     return $output
 }
 
-Function DKIM{
-    param($domain)
-    $dkimrecordms = "._domainkey.icdb.p-v1.dkim.mail.microsoft"
-    $selector1name = "selector1-"
-    $selector2name = "selector2-"
-    $domaindashed = $domain.Replace(".","-")
-    $dkimselector1 = $selector1name + $domaindashed + $dkimrecordms
-    $dkimselector2 = $selector2name + $domaindashed + $dkimrecordms
-    $dkimcname1ms = "selector1._domainkey"
-    $dkimcname2ms = "selector2._domainkey"
+#Function DKIM{
+ #   param($domain)
+ #   $dkimrecordms = "._domainkey.icdb.p-v1.dkim.mail.microsoft"
+ #   $selector1name = "selector1-"
+ #   $selector2name = "selector2-"
+ #   $domaindashed = $domain.Replace(".","-")
+ #   $dkimselector1 = $selector1name + $domaindashed + $dkimrecordms
+ #   $dkimselector2 = $selector2name + $domaindashed + $dkimrecordms
+ #   $dkimcname1ms = "selector1._domainkey"
+ #   $dkimcname2ms = "selector2._domainkey"
     
-    $output = @"
+  #  $output = @"
 ##DKIM##
-CNAME
-$dkimcname1ms
-$dkimselector1
+#CNAME
+#$dkimcname1ms
+#$dkimselector1
 
-$dkimcname2ms
-$dkimselector2
-1 Hour TTL
+#$dkimcname2ms
+#$dkimselector2
+#1 Hour TTL
 
-"@
-    return $output
-}
+#"@
+#    return $output
+#}
 
 Function CreateDNSFile{
     param($domain, $filepath)
@@ -118,7 +118,6 @@ $(MXRecord -domain $domain)
 $(Autodiscover -domain $domain)
 $(SPF -domain $domain)
 $(Intune -domain $domain)
-$(DKIM -domain $domain)
 "@
     
     # Create the file
